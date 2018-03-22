@@ -18,5 +18,14 @@
         android:layout_height="wrap_content"
         android:text="WebView加载html代码" />
 
+
+    <Button
+        android:id="@+id/bu_load_AgentWebX5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:text="AgentWebX5浏览网页" />
+
+
 </LinearLayout>
 

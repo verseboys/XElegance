@@ -16,6 +16,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+        lintOptions {
+            abortOnError false
+        }
+
 }
 
 dependencies {
@@ -37,6 +43,12 @@ dependencies {
 
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+
+
+    //AgentWeb 是一个基于的 Android WebView ，极度容易使用以及功能强大的库
+    compile 'com.just.agentweb:agentweb:4.0.2' // (必选)
+    compile 'com.just.agentweb:download:4.0.2' // (可选)
+    compile 'com.just.agentweb:filechooser:4.0.2'// (可选)
 
 
 }

@@ -1,8 +1,11 @@
 package com.xverse.xelegance.webview;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -18,10 +21,32 @@ public class WebViewLoadWeb extends Activity {
 		loadWeb();
 		//	loadHtmlData();
 	}
+	@SuppressLint({ "JavascriptInterface", "SetJavaScriptEnabled" })
 	public void loadWeb(){
-		String url = "https://www.baidu.com/";
+		String url = "http://192.168.1.108:8080/Exam";
+
+		//String url = "https://www.baidu.com";
 		//此方法可以在webview中打开链接而不会跳转到外部浏览器
 		webView.setWebViewClient(new WebViewClient());
+		webView.getSettings().setJavaScriptEnabled(true); //支持JavaScript
+		webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);//关闭缓存
+		webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);//不加上，会显示白边
+		//webView.loadUrl("http://192.168.0.254/jQM_demo/22.html");
+
+		webView.getSettings().setAllowFileAccess(true);
+		//如果访问的页面中有Javascript，则webview必须设置支持Javascript
+
+		//webView.getSettings().setUserAgentString(App.getUserAgent());
+
+		webView.getSettings().setAppCacheEnabled(true);
+		webView.getSettings().setDomStorageEnabled(true);
+		webView.getSettings().setDatabaseEnabled(true);
+		webView.getSettings().setBlockNetworkImage(false);//解决图片不显示
+		webView.getSettings().setSupportZoom(false);//是否缩放
+   //手势点击缩放禁止
+		webView.getSettings().setBuiltInZoomControls(false);
+		webView.getSettings().setSupportZoom(false);
+		webView.getSettings().setDisplayZoomControls(false);
 		webView.loadUrl(url);
 	}
 	@Override
